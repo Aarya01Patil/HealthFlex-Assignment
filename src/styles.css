@@ -1,0 +1,187 @@
+:root {
+    --color-a: #4B0082;
+    --color-b: #D8BFD8;
+    --color-c: #FF00FF;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .App {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .comment-section {
+    margin-top: 40px;
+  }
+  
+  .comment-form, .reply-form {
+    margin-bottom: 20px;
+  }
+  
+  .comment-form input, .comment-form textarea,
+  .reply-form input, .reply-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .comment-form button, .reply-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .comment, .reply {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 50px;
+    margin-bottom: 15px;
+  }
+  
+  .comment h3, .reply h4 {
+    margin-top: 0;
+  }
+  
+  .date {
+    color: #777;
+    font-size: 0.9em;
+  }
+  
+  .comment-actions, .reply-actions {
+    margin-top: 10px;
+  }
+  
+  .comment-actions button, .reply-actions button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .sort-button {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(69deg, var(--color-a), var(--color-b), var(--color-c));
+    background-size: 300% 500%;
+    animation: gradient 15s ease-in infinite;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .mode-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .reply {
+    margin-left: 20px;
+    border-left: 2px solid #ddd;
+    padding-left: 10px;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 123, 255, 0.5);
+    border-radius: 50%;
+    animation: float 15s infinite linear;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    100% {
+      transform: translateY(-100vh) translateX(100vw);
+    }
+  }
+
+  .theme-selector select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 25px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .theme-selector select::-ms-expand {
+    display: none;
+  }
+  
+  .theme-selector select option[value=""][disabled] {
+    display: none;
+  }
+  
+  .theme-selector select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,.25);
+  }
+
+  .theme-selector {
+    position:relative;
+    display: inline-block;
+  }
+  
+  .theme-selector::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }

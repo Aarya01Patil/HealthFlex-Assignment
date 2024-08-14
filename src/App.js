@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CommentSection from './components/CommentSection';
+import AnimatedBackground from './components/AnimatedBackground';
 
 function App() {
+  const [feeling, setFeeling] = useState(1);
+  const handleThemeChange = (e) => {
+    setFeeling(Number(e.target.value));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App`}>
+      <AnimatedBackground feeling={feeling} />
+      <div className="theme-selector">
+        <select onChange={handleThemeChange} value={feeling}>
+          <option value="" disabled>Themes</option>
+          <option value={1}>Theme 1</option>
+          <option value={2}>Theme 2</option>
+          <option value={3}>Theme 3</option>
+        </select>
+      </div>
+      <CommentSection />
     </div>
   );
 }
